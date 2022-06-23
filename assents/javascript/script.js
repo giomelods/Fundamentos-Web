@@ -1,7 +1,10 @@
 var nome = window.document.getElementById('nome')
 var email = document.querySelector('#email')
+var assunto = document.querySelector('#assunto')
 var nomeOK = false
 var emailOK = false
+var assuntoOK = false
+var mapa = document.querySelector('#mapa')
 
 nome.style.width = '100%'
 email.style.width = '100%'
@@ -32,12 +35,34 @@ function validarEmail() {
  }  
 
 }
+function validarAssunto(){
+let TxtAssunto = document.querySelector('#TxtAssunto')
+    if(assunto.value.length >=100){
+        TxtAssunto.innerHTML = 'Texto é muito grande, digite no máximo 100 caracteres'
+    TxtAssunto.style.color = 'red'
+    TxtAssunto.style.display = 'black' 
+    }else{
+    TxtAssunto.style.display = 'none' 
+    assuntoOK = true
+    }
+}
 
 function Enviar(){
-if(nomeOK ==true && emailOK==true){
+if(nomeOK ==true && emailOK==true && assuntoOK==true){
     alert('preenchido corretamente, enviado!!')
 
     }else{
         alert('preencha o campo corretamente')
     }
+}
+
+function mapaZoom(){
+mapa.style.width = '800px'
+mapa.style.height = '600px'
+}
+
+function mapaNormal(){
+    mapa.style.width = '400px'
+    mapa.style.height = '250px'
+
 }
